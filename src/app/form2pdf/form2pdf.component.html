@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <h1>Este é o teste de uso do gerador de PDF.</h1>
+      <p>Usando a biblioteca jspdf para teste. Quais seus benefícios e defeitos?</p>
+    </div>
+
+    <div class="col-md-12">
+      <h1>Vamos gerar um PDF a partir de um Formulário!</h1>
+      <p>Para tal usaremos o a biblioteca formControl para gerenciar os campos facilmente</p>
+    </div>
+    <!-- formulario -->
+
+    <div class="col-md-12 form">
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [formControl]="formNome">
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Idade</mat-label>
+        <input matInput type="text" [formControl]="formIdade">
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Altura</mat-label>
+        <input matInput type="text" [formControl]="formAltura">
+      </mat-form-field>
+
+      <label id="example-radio-group-label">Seu sexo</label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [formControl]="formSexo">
+        <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+        <mat-radio-button value="Feminino">Feminino</mat-radio-button>
+        <mat-radio-button value="Outro">Outro...</mat-radio-button>
+      </mat-radio-group>
+      
+    </div>
+
+      <div class="col-md-12 btn-gerar">
+      <button mat-raised-button color="primary" (click)="createDoc()">Salvar como PDF</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Pessoas cadastradas</h1>
+      <p>Ao cadastrar no formulário de cima automaticamente os dados 
+        serão cadastrados no vetor que será conectado com o firebase, e também aparecerá na tabela abaixo.</p>
+      <table mat-table [dataSource]="dataSourcePessoas" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let pessoas"> {{pessoas.id}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let pessoas"> {{pessoas.nome}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="idade">
+          <th mat-header-cell *matHeaderCellDef> Idade </th>
+          <td mat-cell *matCellDef="let pessoas"> {{pessoas.idade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="altura">
+          <th mat-header-cell *matHeaderCellDef> Altura </th>
+          <td mat-cell *matCellDef="let pessoas"> {{pessoas.altura}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="sexo">
+          <th mat-header-cell *matHeaderCellDef> Sexo </th>
+          <td mat-cell *matCellDef="let pessoas"> {{pessoas.sexo}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>  
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Adicionando dados no banco de dados firebase</h1>
+      
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Pessoas cadastradas, leitura feita pelo firebase</h1>
+      <p>Ao cadastrar no formulário de cima automaticamente os dados 
+        serão cadastrados no vetor que será conectado com o firebase, e também aparecerá na tabela abaixo.</p>
+      <table mat-table [dataSource]="dataSourcePessoasFirebase" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let pessoasFirebase"> {{pessoasFirebase.id}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let pessoasFirebase"> {{pessoasFirebase.nome}} </td>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="idade">
+          <th mat-header-cell *matHeaderCellDef> Idade </th>
+          <td mat-cell *matCellDef="let pessoasFirebase"> {{pessoasFirebase.idade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="altura">
+          <th mat-header-cell *matHeaderCellDef> Altura </th>
+          <td mat-cell *matCellDef="let pessoasFirebase"> {{pessoasFirebase.altura}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="sexo">
+          <th mat-header-cell *matHeaderCellDef> Sexo </th>
+          <td mat-cell *matCellDef="let pessoasFirebase"> {{pessoasFirebase.sexo}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>  
+
+
+
+

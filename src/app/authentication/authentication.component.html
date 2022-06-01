@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 auth-card">
+            <div class="auth-field">
+                <label for="">Email</label>
+                <input [formControl]="userEmail"  type="text">
+            </div>
+            <div class="auth-field">
+                <label for="">Password</label>
+                <input [formControl]="userPassword" type="password">
+            </div>
+
+            <button (click)="handleLogin()">SignIn</button>
+            <button (click)="handleRegister()">SignUp</button>
+        </div>
+    </div>
+</div>

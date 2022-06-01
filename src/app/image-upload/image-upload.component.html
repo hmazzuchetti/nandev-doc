@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Upload de imagem para o firebase</h1>
+            <p>Agora vamos enviar varias imagens ao firebase</p>
+            <p>{{downloadUrl}}</p>
+            <img class="img-firebase" src={{downloadUrl}} alt="Cade">
+        </div>
+        <hr>
+        <div class="col-md-12 image-file-box">
+            <label for="Image">Image File</label>
+            <input type="file" (change)="formHandler($event)" accept="*.png.jpg">
+            <!-- <button (click)="uploadFiles()">Upload Image</button> -->
+        </div>
+    </div>
+</div>
